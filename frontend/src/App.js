@@ -4,7 +4,10 @@ import axios from "axios";
 import Sidebar from "./components/Sidebar";
 import ChatWindow from "./components/ChatWindow";
 
-const API = process.env.REACT_APP_API_URL || "http://localhost:4000";
+const API =
+  process.env.REACT_APP_API_URL ||
+  (process.env.NODE_ENV === "production" ? "" : "http://localhost:4000");
+
 
 export default function App() {
   const [conversations, setConversations] = useState([]);
