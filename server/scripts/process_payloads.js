@@ -2,8 +2,11 @@
 import fs from 'fs';
 import path from 'path';
 import { MongoClient } from 'mongodb';
+import dotenv from 'dotenv';
 
-const mongoUrl = 'mongodb+srv://swati2003jain:kymhuFMF0nKIzoNs@cluster0.bua8ufs.mongodb.net/whatsapp?retryWrites=true&w=majority';
+// Load environment variables
+dotenv.config();
+const mongoUrl = process.env.MONGO_URI;
 const dbName = 'whatsapp';
 const collectionName = 'processed_messages';
 const payloadsDir = './payloads';
