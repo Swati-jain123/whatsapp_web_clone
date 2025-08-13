@@ -104,9 +104,9 @@ app.post("/messages", async (req, res) => {
   }
 });
 
-// ✅ Serve React frontend after build
+// ✅ Serve React frontend after build (FIXED for Render)
 app.use(express.static(path.join(__dirname, "../frontend/build")));
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {  // <-- changed from "*" to "/*"
   res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
 });
 
